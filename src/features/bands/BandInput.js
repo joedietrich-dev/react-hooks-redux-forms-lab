@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-function BandInput({ onBandSubmit, dispatch }) {
+function BandInput({ onBandSubmit }) {
   const [name, setName] = useState("");
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(onBandSubmit(name));
+    onBandSubmit(name);
     setName("");
   };
   return (

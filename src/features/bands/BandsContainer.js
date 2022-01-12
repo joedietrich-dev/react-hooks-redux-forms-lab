@@ -5,12 +5,15 @@ import { bandAdded } from "./bandsSlice";
 
 function BandsContainer() {
   const bands = useSelector((state) => state.bands.entities);
-  const bandItems = bands.map((band) => <li key={band}>{band}</li>);
-
   const dispatch = useDispatch();
+  const bandItems = bands.map((band) => <li key={band}>{band}</li>);
+  const handleBandSubmit = (band) => {
+    dispatch(bandAdded(band));
+  };
+
   return (
     <div>
-      <BandInput onBandSubmit={bandAdded} dispatch={dispatch} />
+      <BandInput onBandSubmit={handleBandSubmit} />
       <ul>{bandItems}</ul>
     </div>
   );
